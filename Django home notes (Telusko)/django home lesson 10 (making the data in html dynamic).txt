@@ -1,0 +1,44 @@
+
+
+We can add data into the html file dynamically.
+First create a class in models.py with the attributes required.
+Then pass the values through the views.py file into the html file.
+
+
+For example:
+
+#models.py
+class Destination:
+	id: int
+	name: str
+	desc: str
+	price: int
+
+Note: We are doing manually only for learning. This will get easier after connecting to the DB
+#views.py
+from .models import Destination
+
+def index(request):
+	dest1 = Destination() #Creating an object(i.e a row) of Destination class/table
+
+	dest.name = 'Kathmandu'	
+	dest.desc ='City of temples'
+	dest.price = 500
+
+	return render(request, "index.html", {'dest1':dest1})
+
+#index.html
+Now, wherever you find the name, description and price of the destination, we can replace them with:
+{{dest1.name}}
+{{dest1.desc}}
+{{dest1.price}}
+
+Note: For another destination, we can create another class named 'dest2' and repeat the same process.
+
+
+#Using array of objects:
+we can pass all the objects through an array into the dictionary.
+
+For example, we  have 3 objs 'dest1, dest2, dest3'.
+We can create an array as:  
+dests = [dest1, dest2, dest3]

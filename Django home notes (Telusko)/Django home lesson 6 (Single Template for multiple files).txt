@@ -1,0 +1,28 @@
+
+
+In multiple pages for a single site, most pages might have the same layout with different content.
+We can create a separate file that holds the properties(design) that are common in all these pages.
+And then extend it in other html files with jinja
+
+We can achieve this by doing the following:
+
+In the new html file, that is going to have all the layout features add: (Inside the body)
+#base.html
+<html>
+<body>
+{% block content %}
+
+{% endblock %}
+<body>
+</html>
+
+And now to extend this html file in any other html file:
+{% extends 'base.html' %}
+
+{% block content %}
+
+html content/code
+
+{% endblock %}
+
+--> This will  make the html file inherit all the properties from the base.html file.

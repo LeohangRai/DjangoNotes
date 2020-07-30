@@ -1,0 +1,4 @@
+When a client sends a request to django, it will go through URL and here it will check which view to call where the actual coding(Business logic) is done.
+Also, the template as well as model are connected through the view.
+
+In MVC, we have to configure the controller as well but in Django, the controller is already configured.

@@ -1,0 +1,8 @@
+POST: for adding new data to the server
+GET: for fetching the data
+PUT: update the data on the server
+DELETE: deleting
+
+POST vs GET
+GET: the variables will be shown in the URL
+POST: the variable won't be shown in the URL

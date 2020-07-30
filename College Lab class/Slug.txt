@@ -1,0 +1,21 @@
+<slug>
+<int:id>
+<int: pk>
+
+Slug is used to make the URLs dynamic
+
+
+Slug is also a type?
+Any other method to pass arg through the URL?
+User doesn't know the PK or id...so willl 
+
+
+While adding delete, update, post <int:id> or sth, we will always need to have a form int
+
+
+You can call the view function through the static file like:
+action = "{% url 'main:function_name' %}
+
+
+redirect(appname:name)
+name is the path wala name.

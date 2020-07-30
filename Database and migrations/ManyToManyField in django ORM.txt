@@ -1,0 +1,60 @@
+#Many to many:
+In this case, add the Many to many field in the table which is of a lower value.
+For egL a film has many characters and a character can be in many movies as well.
+But a character is in a lower level than a movie.
+So we keep a many to many field in Character table	
+
+class Movie:
+	name = models.CharField(max_length=100)
+
+class Character:
+	name = models.CharField(max length = 100)
+	movies = models.ManyToManyField(Movie)
+
+After applying ManytoManyfield, a third table is created in the DB where named character_movies
+
+>>avengers = Movie(name = 'Avengers')
+avengers.save()
+captain_america = Character(name = 'Captain America')
+captain_america.save()
+
+captain_america.movies.add(avengers)
+
+
+civil_war = Movie(name = 'Civil War')
+thor_movie = Movie(name = 'Thor: dark World')
+thor_character = Character(name = 'Thor')
+civil_war.save()
+thor_movie.save()
+thor_character.save()
+
+thor_character.movies.add(thor_movie)
+thor_character.movies.add(civil_war)
+
+Instead of just passing movies as objects like this, we can also instantly create a new movie:
+
+thor_character.movies.create(name = 'End Game') 
+
+
+
+
+
+
+Quering a ManytoMany releationship table:
+
+Character.objects.filter(movies__name = 'Civil War')
+-->will return the characters that are in the movie Civil War
+
+Movie.objects.filter(character__name = 'Captain America')
+--> will return all the movies that  has the character 'Captain America'
+
+
+captain_america = Character.objects.get(name = 'Captain America')
+captain_america.movies.all()
+
+--> will return all the movies that has cap america 
+
+
+
+
+

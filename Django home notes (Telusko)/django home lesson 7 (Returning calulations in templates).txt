@@ -1,0 +1,30 @@
+
+Suppose we have a form in an html page in one of our templates. Assume there are two text fields for inputting numbers and the sum of those two numbers are to be returned in the next html file.
+
+We can achieve this by using jinja.
+
+
+form.html
+<form action = "add">  #method = get by default
+Enter num1: <input type = "text" name = "num1"> <br>
+Enter num2: <input type = "text" name="num2"><br>
+<input type = "submit">
+<form>
+
+First, go to urls.py and add:
+path('add', views.add, name='add' )
+
+Then, go to views.py and add a function for the operation 'add':
+
+def add(request):
+	var1 = int(request.GET['num1'])
+	var2 = int(request.GET['num2'])
+	res = var1 + var2
+	return render(request, 'result.html', {'result':res})  #in case of add request, go to the result.html page
+
+result.html 
+
+Resutl: {{result}}
+
+
+This will  return the addition of the 2 user given numbers

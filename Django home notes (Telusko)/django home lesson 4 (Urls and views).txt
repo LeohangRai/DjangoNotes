@@ -1,0 +1,43 @@
+#URL routing and requests
+
+
+#Views
+(Creating Defualt and custom homepage)
+
+-this file handles all the web pages.
+-Using functions or classes 
+
+#Urls
+- this file is like the router for each page
+-adding path to this file for each page to be redirected to
+
+
+Example:
+#views.py
+from django.http import HttpResponse 
+
+def home_view(*args, **kwargs):
+ 	return	HttpResponse("<h1> Hello world </h1>")  #String of Html code
+def contact_view(*args, **kwargs):
+	return HttpResponse("<h1>This is the contact page</h1>") 
+
+#urls.py (From main app)
+from pages.views import home_view, contact_view
+
+	path('', home_view, name = 'home')
+	path('home/', home_view, name ='home')  #Both empty url and home will give the same output
+	path('contact/' contact_view)
+
+Note: This way, you won't have to create a urls.py file for the new app.
+
+Note:
+print(args, kwargs)
+print(request)
+print(request.user)
+
+pathname/   if this is done inside the urls.py in application, then it exists independently.
+/pathname  if this is done, then it exists inside prevfoldername/pathname
+
+
+
+

@@ -1,0 +1,20 @@
+We can use filters in the template to display the date in the format we want.
+
+For example:
+If we want to show in the fullmonth, day and year format as:
+July 4, 2020
+
+Then we can use this filter:
+
+{{ post.date_posted | date:"F d, Y" }}
+
+NOTE: There should not be any whitespace between the colon and the inverted comma in date:""
+
+Here F refers to full month
+d refers to day in numbers stating with 0
+Y refers to year
+
+#NOTE
+We can customize these formats by looking at the documentation.
+The documentation shows what stands for what.
+It's easy

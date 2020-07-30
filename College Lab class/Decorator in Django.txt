@@ -1,0 +1,21 @@
+Decorator is used to extend/modify the function is Django.
+Decorator is also a function but it takes a function as an argument
+
+Decorator is to a function like meta is to a class.
+
+instead of meta()
+we use 
+
+
+
+To use the decorator function, 
+use @decoratefunctionname 
+above the function which is to be decorated
+
+
+(func) - a variable function
+
+ func is any function that is going to use the decorator
+
+decorate = decorate_func()  
+decorate_func() is returning an inner which is assigned to the decorate variable.

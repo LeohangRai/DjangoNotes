@@ -1,0 +1,3 @@
+Use of {% extends %} , {% include %} and {% blocks %} 
+
+https://riptutorial.com/django/example/32472/use-of----extends---------include----and----blocks---

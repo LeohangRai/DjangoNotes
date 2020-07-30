@@ -1,0 +1,15 @@
+Why user meta(or inner class):
+if the django built in model(API) is not enuff
+if
+
+
+
+For file upload:	
+
+
+MEDIA_ROOT = os.path.join('BASE_DIR', 'media')  #Create a folder named media in the root(base) folder
+MEDIA_URL = '/book/pdfs' #inside this path in media folder 
+
+
+Templates:
+Django looks for the templates folder starting from the root folder and then into the app 

@@ -1,0 +1,36 @@
+Root of the project == the dir where manage.py is located.
+We have to open the cmd at the directory where manage.py file is located.
+
+
+#Settings.py:
+
+import os  ----> so it runs on all OS (Mac, linux, windows)
+
+BASE_DIR ----> points the path of the project
+
+SECRET_KEY ----> Unique to the project. Used for security. You can make changes to it.
+
+INSTALLED_APPS----> This is where we develop our apps for the site...There are already a bunch of apps pre-installed. This is where we put our own apps as well as third party apps.
+
+Think of apps as components, rather than just apps.
+
+MIDDLEWARE----> how requests and security are handled
+
+ROOT_URLCONF 
+
+TEMPLATES ----> 
+
+WSGI-APPLICATION
+
+DATABASES---> 
+
+
+STATIC_URL ---> where your javascript, images and css. 
+
+Note: Every time a new app is created, we need to add them into the INSTALLED_APPS in settings.py
+
+
+>python manage.py migrate ----> This syncs our settings with our django project and whatever app we have.
+
+
+

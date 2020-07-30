@@ -1,0 +1,12 @@
+models.DateTimeField(auto_now=True) --> changes every time the data object is modified/updated
+models.DateTimeField(auto_now_add = True) --> sets the date/time to the time/date the data was created (But cannot 
+be modified)
+
+models.DateTimeField(default) --> changeable manually
+
+So we use it as:
+models.DateTimeField(default = timezone.now)
+
+NOTICE: we are using timezone.now, not timezone.now(), 
+we are only calling the function object at that point.
+Not passing function as the argument.

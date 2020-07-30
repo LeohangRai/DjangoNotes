@@ -1,0 +1,62 @@
+The part that the browser should show is kept in the body of the html.
+The links to be accessed are kept in the head. (css)
+
+
+
+pathname/   if this is done inside the urls.py in application, then it exists independently.
+/pathname  if this is done, then it exists inside prevfoldername/pathname
+
+Render(request, template_name, object )
+
+render(request, template_name= "", context = {"key":value})
+
+
+context is a dictionary. The values inside the dictionary is accessed through the key.
+In the context, we pass objects. (i.e. the objects of the table/class from models.py)
+For ex:
+context = {'tutorials':'tutorial.objects.all'}  #Now we can use the objects by calling 'tutorials' key in the html file.
+
+
+
+Example 2:
+from django.contrib.auth.forms import UserCreationForm  #Django model for users creation (Login system)
+form = UserCreationForm()  #obj initialized
+
+return render(reuqest, template_name = "main/register.html", context ={"anyname":form}) #passing the form as anyname into the register.html file.
+
+
+
+separate the content that may change sooner or later from the ones that won't
+Example:
+non-changing: links in the <head>
+changing: the data/description like name, price and stuffs
+
+
+
+render vs redirect:
+render is for sending to a new page.
+redirect is for sending to an already existing page
+Redirect can go to a page in another app
+
+{% extends "main/header.html" %}
+
+
+#views.py
+
+from django.contrib.auth.forms import UserCreationForm  #Django model for users creation (Login system)
+from django.contrib.auth import login, logout, authenticate
+
+def register(request):
+	if request.method == "POST":
+		form = UserCreationForm(request.POST)
+		if form.is_valid():  #check whether all the fields have been populated
+			user = form.save()  #save the data into the database
+			login(request, user)
+			return redirect('main:homepage')
+		else:
+			for msg in form.error_messages:
+				print(form.error_messages['msg'])
+
+	form = UserCreationForm()
+
+	return render(request = request, template_name="main/register.html", context={"form":form})

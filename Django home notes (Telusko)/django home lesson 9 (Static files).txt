@@ -1,0 +1,42 @@
+We need to place all the static files of the template (HTML) in a separate folder in the main project.
+In the example, we have named it 'static'
+
+We have to tell django that we have placed all the static files in a separate folder by coding in the settings.py:
+
+Do the following:
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR, 'static')  #path of the static files' folder added with the BASE Path
+]
+
+
+Django will take all the files from this static folder and keep them in its own separate folder (for more efficiency) as we code below:
+
+STATIC_ROOT = [
+	os.path.join(BASE_DIR, 'assets')
+]
+
+We will have to tell django to copy all the files from our static folder to its own folder (assests) through CLI:
+>python manage.py collectstatic
+
+Now there shall be a new folder named 'assets' in the base directory with all the files from the static folder.
+
+
+
+Now, in the html file, wherever there is a reference (href) and path, we need to show that the static (css, js, img) files are inside the static folder.
+
+We can do this by using jinja by:
+First loading the static folder:
+{% load static %}  #Do this on top of the html file.
+
+Changing: 
+href="plugins/OwlCarousel2-2.2.1/owl.carousel.css"
+Into:
+href=" {% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}"
+
+Note: 'static' is the name of the folder that has the static files	
+
+
+Change:
+<img src="images/destination_1.jpg" alt="">
+To:
+<img src="{% static 'images/destination_1.jpg' %}" alt="">

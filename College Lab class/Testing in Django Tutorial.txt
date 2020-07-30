@@ -1,0 +1,10 @@
+if TestCase class is inherited, methods can be called without obj initiailization
+also called "Anonymous call"
+
+assertEqual(1st value, 2nd value)
+Checks whether the two values are equal or not.
+
+assertTrue()
+
+To run test:
+python manage.py test

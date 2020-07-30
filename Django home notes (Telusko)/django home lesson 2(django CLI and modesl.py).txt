@@ -1,0 +1,45 @@
+
+>django-admin startproject projectname  [Django-admin creates the project]
+
+
+>python manage.py createsuperuser
+----> will ask for username, email and pw
+
+
+>python manage.py runserver
+To stop the server: CTRL + C
+
+
+>python manage.py startapp appname
+-----> will create a folder for the app 
+After creating any app, go to settings.py to add the app in the INSTALLED_APPS field manually.
+
+
+
+Then: 
+>python manage.py makemigrations
+>python manage.py migrate
+
+Note: 
+These two commands are to be run in conjunction everytime a change is made to the models.py file
+
+models.py: (Of the app we created)
+To create a database:
+
+class TableName(models.Model):
+	attrb name = models.InputType()
+
+
+Example:
+class Products(models.Model):
+	title = models.TextField()
+	description = models.TextField()
+
+
+#Important Note:
+Every time a new app is created, we need to add them into the INSTALLED_APPS in settings.py
+
+After creating the model, we have to register the model, i.e. the class in the admin.py file:
+
+from .models import Product     #Product is a class/table
+admin.site.register(Product)

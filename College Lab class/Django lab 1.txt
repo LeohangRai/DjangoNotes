@@ -1,0 +1,82 @@
+All the commands used:
+#django-admin startproject projectname
+#python manage.py runserver
+django-admin : creates the project
+
+
+Collection of apps is website.
+So all the projects that we are working on are websites
+Each feature is an app
+Think of apps as components, rather than just apps.
+
+
+To run any python file, write 
+python filename.py
+
+#python manage.py runserver
+
+To stop the server: CTRL + C
+
+#python manage.py startapp main
+
+
+
+manage.py is used to runserver and startapp
+
+
+SQL injection :
+extracts admin login info
+Mainly happens due to secret key vulnerability
+
+
+
+urls.py is gateway interface (it is the controller) --> I think I meant wsgi.py
+urls.py initially/automatically only exists in the first folder, so we need to copy paste it into the app folder that we work on next.
+The urls.py of the first (automatic one) should point to the ones we make
+
+
+
+
+from . import methodName/className
+
+. means from the current directory
+
+
+
+path('',views.homepage, name="homepage" ), #go to homepage when the URL is empty
+    
+
+
+Models are only in the main app
+
+from django.db import models
+
+# Create your models here.
+class Tutorial(models.Model):
+
+Model is imported for the primary key and other DB features
+
+
+#Difference between CharField and TextField:
+CharField has max_limit
+
+For each change in the models.py, we should run 2 commands:
+1. makemigrations
+2. migrate
+
+These commands are run in the manage.py file
+
+
+python manage.py makemigrations
+nochangedetected----> because the app has not been registered.
+
+python manage.py migrate
+This must create a folder named 'migrations' which will have a file named 0001_inittial.py
+
+
+DB
+1 class is 1 tabe
+1 row is 1 obj
+
+View:
+doesn't render, it only requests, and the controller responds

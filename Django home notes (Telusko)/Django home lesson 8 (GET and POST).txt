@@ -1,0 +1,14 @@
+POST: for adding new data to the server
+GET: for fetching the data
+PUT: update the data on the server
+DELETE: deleting
+
+
+#Note:
+While posting data, always use post so that the data entered won't be shown in the URL.
+
+#By default, method = get 
+
+#Note:To use POST method, we need to use csrf Token like:
+
+{% csrf_token %}  # apply this after defining 'post' method in the form tag

@@ -1,0 +1,23 @@
+GET method is used in Search function
+
+To return certain attrbs/values of any object or dict, use the keyword:
+values()
+
+
+.filter()
+.all()
+.values()
+These all return a queryset. <>
+To render these in Json, we need to convert them into list by Typecasting.
+
+Example:
+list(obj.values())
+
+
+Js0n obj ---> decode(UTF-8)--> loads(changes it into dictionary for Python server)
+
+decoded_data = request.body.decode('utf-8') #to make it compatible with the ARC (Postman in mozilla)
+		book_data = json.loads(decoded_data)
+
+JsonResponse({})
+always takes dictionary

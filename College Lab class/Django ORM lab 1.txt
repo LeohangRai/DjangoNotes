@@ -1,0 +1,108 @@
+
+> The data manipulation can be done through the admin page:
+First register the models classes on admin.py file.
+
+
+on_delete = models.CASCADE
+--->If the obj of one class is deleted, the encapsulated objs will also get deleted.
+Ex: Post delete = comments delete
+
+#Imp
+tablename.objects [Object manager]
+
+
+>python manage.py shell [Goes to interactive console] For ORM
+
+Now import the required tables:
+>>> from <appname>.models import tablename1, tablename2, tablename3....
+
+
+
+#Note:
+While quering, we have to define what attrb to be returned by a magic method in the models.py file as:
+def __str__(self):
+    	return self.attrb_name
+What this does is, whenever we call or use this table's obj, it's gonna return the attrb defined by us
+
+
+Adding data into the database:
+q = Classname(attrb = value,.....)
+q.save()
+
+Extra: (Manipulating timezone from django.utils) 
+>>>from django.utils import timezone
+>>>q=Question(question_text = 'What is your name', pub_date = timezone.now())
+>>>q.save() 
+
+#Registering the models,
+Go to the admin.py file and do the following:
+from .models import TableName
+admin.site.register(TableName)
+
+Quering the tables:
+>>>Programmer.objects.all()  To select all the objects from the table 
+>>>Programmer.objects.all()[starting index: ending index:jump]  #Slicing 
+>>>Programmer.objects.filter(condition)
+>>>Programmer.objects.filter(name__iexact='anthony')   #iexact for non case sensitivity
+>>>Progarmmer.objects.all().count()    #Shows the number of rows in the table
+>>>Programmer.objects.filter(name__contains='a') #Returns the names containing the letter 'a'
+>>>Programmer.objects.filter(name__contains='a').count() #Returns the count of rows containing 'a' in name
+>>>Programmer.objets.filter(name__startswith='a')
+>>>Programmer.objets.filter(name__endswith='a')
+>>>prog = Programmer.objects.filter(name__startswith = 'a')  #Creating an obj for the Programmer table
+>>>prog = Programmer.objects.filter(name__startswith = 'a').get()   #Get method is used so that we can access all the other attrb of the tuple/row/obj
+
+>>>Programmer.objects.exclude(name__contains='a')  #returns names without the letter a
+>>>Programmer.objects.filter(age__gt=25) #returns the rows with age greater than or equal to 25
+>>>Programmer.objects.filter(age__lt=25) #returns the rows with age less than or equal to 25
+>>>Programmer.objects.exclude(age__lt=25) #returns the programmers with age greater than 25
+>>>Programmer.objects.filter(date_created__gt='1990-01-01')
+
+
+Showing in order:
+Company.objects.all().order_by('date_created') #returns in ascending order of the date created
+Company.objects.all().order_by('-date_created') #returns in descending order of the date created
+
+
+
+Company.objects..order_by('date_created')  #This can also be done now(After update)
+
+
+Functions:
+all()
+count()
+filter()
+exclude()
+
+
+#Field Lookups:
+__iexact [For non case sensitivity]
+__contains 
+__startswith
+__endswith
+
+
+
+
+Dictionary in Python:
+dictionaryname = {"key" : "value"}
+
+
+context = {}  # this is where we write the ORM commands.
+
+#Note: 
+While adding folder into the templates folder, remember to name them like the app names
+
+
+HTML File:
+
+{{variable}} 
+{% logic %}
+
+Example:
+
+{% for t in tutorials %}
+
+
+
+

@@ -1,0 +1,16 @@
+#models.py:
+
+class Tablename(models.Model):
+	img = ImageField(upload_to = 'foldername')
+
+folder name means the static folder where the images are to be saved.
+
+settings.py
+
+MEDIA_URL = '/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+urls.py
+
+from django.conf import settings
+form django.conf.urls.static import static

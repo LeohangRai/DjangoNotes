@@ -1,0 +1,24 @@
+we have 2 models.
+1. Blog (title, content, date_posted, author(fk))
+2. User (username, email, pw)
+
+Here, we see that Blog uses User as the foreign key.
+
+Now if we have a Blog object.
+Then we can access the fields of the foreign key object that this Blog object points to.
+
+
+For example:
+
+blog1 = Blog.objects.first()
+
+Now that we have a blog object, we can use it's corresponding foreing key object's fields as:
+
+blog1.author
+> This will return the user/author object
+
+blog1.author.email
+> this will return the user/author's email
+
+blog1.author.username 
+> This will return the user/author's username

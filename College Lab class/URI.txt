@@ -1,0 +1,14 @@
+Rules for URI (Universe Resource Indicator)
+
+3. hyphen between words
+4. No underscore
+5.No upper case
+6. Pluralize the classes except id
+7. No file extensi0n [Only upto the type of files, not the file instead]
+
+blogs/lel.png is wrong
+blogs/images is right
+
+
+
+

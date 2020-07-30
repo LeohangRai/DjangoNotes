@@ -1,0 +1,39 @@
+#Parent - Child (1 to many + many to 1 relationship)
+
+>>from example.models import Language, Framework
+
+>>python = Language(name = 'python')
+>>python.save()
+
+>>django = Framework(name = 'django')
+>>flask = Framework(name = 'flask')
+
+>>django.language = python  [Note: Here, Python is an obj]
+>>flask.language = python 
+
+>>bottle = Framework(name = 'bottle', language = python)
+
+>>django.save()
+>>flask.save()
+>>bottle.save()
+
+
+#NOTE
+>>java = Language(name = 'java')
+>>spring = Framework(name = 'spring', languge = 'java')
+>>java.save()
+>>spring.save()
+
+This will show an error.
+Reason: Before even saving java as an obj, we have used it in spring as an obj (Foreign Key)
+obj of the parent class is required
+
+after the error is shown, if you redo the
+>>spring = Framwork(name = 'spring', language = 'java')
+>>spring.save()
+It will work now
+
+
+language is the parent of Framework so we can work on the attrbs of parent using underscore (_)
+>>Framework.objects.filter(language = dfkjf)
+>>Language.objects.filter(framework = 'dsjkdf')

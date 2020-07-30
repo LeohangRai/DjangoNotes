@@ -1,0 +1,27 @@
+#Syntax:
+modelname_set
+
+we have 2 models.
+1. Blog (title, content, date_posted, user(fk))
+2. User (username, email, pw)
+
+Here, we see that Blog uses User as the foreign key.
+
+Now if we have a User object.
+Then we can access the objects that point to this User object as their foreign key.
+
+userobj = User.objects.all().first()
+userobj.post_set.all()
+
+> This will return all the posts that have fk as that userobj
+
+
+We can even create new Post objects using this User object as:
+userobj.post_set.create(title = 'Blog 4', content = 'Hey this is me')
+
+Notice here, we didn't even have to specify the user for this post because, django already knows that we
+created this post for this user.
+
+So this will be automatically saved into the database, without having to run the save() method.
+
+

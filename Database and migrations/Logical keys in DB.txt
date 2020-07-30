@@ -1,0 +1,2 @@
+The keys that are potentially used in the WHERE or GROUP BY or ORDER BY kind of clauses.
+Like name, title, etc.

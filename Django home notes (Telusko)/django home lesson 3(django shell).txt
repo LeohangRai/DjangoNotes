@@ -1,0 +1,18 @@
+#Opening the python shell.
+Make sure you are in the directory that has the manage.py file.
+Open cmd there.
+>python manage.py shell
+
+
+Now you are in the shell.
+So you cam import classes from models and work with them like in SQL. (select, insert, etc.)
+
+Example:
+>>>from products.models import Product      #imports the Product class/table from the models.py file
+>>>Product.objects.all()                #returns all the objects from Product class
+>>>Product.objects.create()   #You can fill up the attribs inside the parameter like (title='', description = '',....)
+
+
+To delete all the changes you have made:
+Delete the pychache folder in the migrations module [Leave the __init__ file inside it]
+Also, delete the dbsqLite3 file to delete the whole DB

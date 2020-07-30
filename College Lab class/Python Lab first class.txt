@@ -1,0 +1,83 @@
+Python is dynamic:
+Any variable can be int, str, or any other data type.
+
+#Uses of colon:
+1. class definition
+2. method definition
+3. loop
+4. ifelse
+
+#Parameter vs Argument
+Parameter -- given to the method while declaration
+argument -- given while calling the method or class
+
+Constructor is(should always be) always the first method in the class
+def __init__()  also called Magic method
+
+method if inside class
+function if outside class
+
+this --- self
+
+Self should always be the first parameter in every method
+Self is used to call the attrbs of the current class as global scope
+
+#keyword.kwlist  To show keyword list.
+
+camelConvention
+
+# for comment
+
++ for concatenation
+
+
+#Typecastig or type conversion.
+
+int()
+str()
+
+
+#String as Data structure
+String is a data structure.
+because it carries a sequence of characters.
+
+For ex: "abc" is a sequence of a,b and c.
+
+#Mutability:
+String is not mutable. it needs to be replaced explicitly to change or modify.
+
+Lists are mutable. They get modified after implementing any method.
+
+
+#
+var.capitalize() to capitalize the first character
+var.upper() to capitalize the whole string.
+
+#Slicing
+
+[starting index:Exclusion position index : Jump]
+
+Starting index - 0 as default
+Jump - 0 as default
+
+
+
+
+#List:
+
+adding single data:
+listName.append()
+
+adding multiple data:
+listName.extend([])
+
+
+removing last entry:
+listName.pop()
+
+Selecting multiple entry: #Slicing
+listName[::]
+
+
+
+#If else in Python

@@ -1,0 +1,10 @@
+
+inheritance
+
+class subclassName(superClassName)
+
+
+Two objs of different classes cannot be added
+Because the units are not defined. (Tuple)
+If they are added,  incompatibility error will be shown.
+ 	

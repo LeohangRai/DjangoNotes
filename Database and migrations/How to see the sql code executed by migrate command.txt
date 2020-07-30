@@ -1,0 +1,12 @@
+First we need to run:
+python manage.py makemigrations
+
+Then:
+python manage.py sqlmigrate <app_name> <migration_num>
+
+NOTE: You can find the migration number in the migration file.
+For example, in the migration file 001_initial.py, the migration number is:
+001
+
+
+The migration file is generated once we run the makemigrations command.

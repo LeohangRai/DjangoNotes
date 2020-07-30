@@ -1,0 +1,31 @@
+#Templates in Django: (DTL: Django Template Language)
+--->In any html page, we can have dynaimc content.
+    The page can have a single layout with dynamic content 
+
+
+render is used instead of HttpResponse here:
+because we have to merge the html file(static content) and dynamic content to render the output 	
+
+#Steps:
+1. Create the templates folder (can be named sth else rather than just templates)
+2. Go to settings.py and add [os.path.join(BASE_DIR, 'templates')]    #templates because it is the folder name, can be anything else as per the name of the folder
+3. Go to views.py and do the following:
+ 	def pagename(request):
+		return render(request, 'pagename.html')
+
+
+Note:   {{}} or {% %} These both are used in jinja patterns
+
+#Extra: (Jinja pattern)
+If you want to make any content in the html file dynamic:
+
+views.py:
+return render(request, 'pagename.html', '{'name':'Leo'}')
+
+html page:
+Hello {{name}} !!
+
+This will print "Hello Leo"
+
+
+
